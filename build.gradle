@@ -1,3 +1,12 @@
+// Add these START
+bootJar {
+	archiveClassifier.set('boot')
+}
+
+jar {
+	archiveClassifier.set('')
+}
+
 plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.0.0'
@@ -30,13 +39,6 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
-jar {
-	manifest {
-		attributes 'Main-Class': 'MatrixCalcV4BackendApplication'
-	}
-	from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
-	exclude 'META-INF/*.RSA', 'META-INF/*.SF','META-INF/*.DSA'
-}
 
 tasks.named('test') {
 	useJUnitPlatform()
