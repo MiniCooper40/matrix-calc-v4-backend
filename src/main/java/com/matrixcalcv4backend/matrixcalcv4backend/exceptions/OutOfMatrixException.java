@@ -2,11 +2,7 @@ package com.matrixcalcv4backend.matrixcalcv4backend.exceptions;
 
 import com.matrixcalcv4backend.matrixcalcv4backend.models.Matrix;
 
-public class OutOfMatrixException extends Exception {
-
-    public enum OOMType {
-        ROW, COL, BOTH
-    }
+public class OutOfMatrixException extends RuntimeException {
 
     public OutOfMatrixException(String message) {
         super(message);

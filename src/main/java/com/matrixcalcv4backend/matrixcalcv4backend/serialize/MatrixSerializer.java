@@ -32,14 +32,13 @@ public class MatrixSerializer extends JsonSerializer<Matrix> {
         gen.writeStartObject();
 
         gen.writeObjectField("data", data);
-        System.out.println("Wrote data");
 
-        gen.writeNumberField("numRows", matrix.getNumRows());
-        System.out.println("Wrote rows");
+        gen.writeNumberField("rows", matrix.getNumRows());
 
-        gen.writeNumberField("numCols", matrix.getNumCols());
-        System.out.println("Wrote cols");
+        gen.writeNumberField("cols", matrix.getNumCols());
 
         gen.close();
+
+        System.out.println("Printed " + matrix);
     }
 }

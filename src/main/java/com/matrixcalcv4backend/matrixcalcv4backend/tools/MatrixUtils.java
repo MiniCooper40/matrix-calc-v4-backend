@@ -23,7 +23,7 @@ public class MatrixUtils {
     }
 
     public static Matrix add(Matrix A, Matrix B) throws InvalidMatrixException, OutOfMatrixException {
-        if(A.getNumRows() != B.getNumRows() && A.getNumCols() != B.getNumCols())
+        if(A.getNumRows() != B.getNumRows() || A.getNumCols() != B.getNumCols())
             throw new InvalidMatrixException("addition", A, B);
 
         int rows = A.getNumRows();
@@ -38,11 +38,11 @@ public class MatrixUtils {
     }
 
     public static Matrix sub(Matrix A, Matrix B) throws InvalidMatrixException, OutOfMatrixException {
-        if(A.getNumRows() != B.getNumRows() && A.getNumCols() != B.getNumCols())
-            throw new InvalidMatrixException("addition", A, B);
+        if(A.getNumRows() != B.getNumRows() || A.getNumCols() != B.getNumCols())
+            throw new InvalidMatrixException("subtraction", A, B);
 
         int rows = A.getNumRows();
-        int cols = B.getNumCols();
+        int cols = A.getNumCols();
 
         Matrix result = new Matrix(rows, cols);
         for(int i = 0; i < rows; i++)
